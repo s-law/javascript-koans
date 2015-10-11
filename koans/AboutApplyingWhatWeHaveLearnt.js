@@ -61,13 +61,26 @@ describe("About Applying What We Have Learnt", function() {
       }
     }
     
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168);
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (functional)", function () {
-    var sum = FILL_ME_IN;    /* try chaining range() and reduce() */
+    /* try chaining range() and reduce() */
+    
+    /* there is some repeated code here, but the simple nature of the exercise means
+    defining and then invoking the helper function three times would be overkill.
+    But for the record:  function adder(a, b) { return a + b; }
+    Then replace lines 76, 78, and 80 with: return adder(a, b); */
 
-    expect(233168).toBe(FILL_ME_IN);
+    var sum = _.range(0, 1000, 3).reduce(function(a, b) {
+      return a + b;
+    }) + _.range(0, 1000, 5).reduce(function (a, b) {
+      return a + b;
+    }) - _.range(0, 1000, 15).reduce(function (a, b) {
+      return a + b;
+    });
+
+    expect(233168).toBe(sum);
   });
 
   /*********************************************************************************/
