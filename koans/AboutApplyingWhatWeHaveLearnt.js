@@ -30,15 +30,24 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+    expect(productsICanEat.length).toBe(1);
   });
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
       var productsICanEat = [];
 
       /* solve using filter() & all() / any() */
+      /*substituted every() for all(); all doesn't
+       appear to be part of JS or underscore, and 
+       there weren't any instructions given to 
+       create all(), so... */
+      productsICanEat = products.filter(function(product) {
+        return product.containsNuts === false && product.ingredients.every(function(ingredient) {
+          return ingredient != "mushrooms";
+        });
+      });
 
-      expect(productsICanEat.length).toBe(FILL_ME_IN);
+      expect(productsICanEat.length).toBe(1);
   });
 
   /*********************************************************************************/
