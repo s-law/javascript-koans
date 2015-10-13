@@ -103,9 +103,7 @@ describe("About Applying What We Have Learnt", function() {
     _(products.map(function(product) {
       return product.ingredients;
     })).flatten().reduce(function(a, ingredient) {
-      console.log(ingredientCount);
-      if (ingredientCount[ingredient] === undefined) { ingredientCount[ingredient] = 1; }
-      else { ingredientCount[ingredient]++; }
+      ingredientCount[ingredient] = (ingredientCount[ingredient] || 0) + 1;
     }, {});
 
     expect(ingredientCount['mushrooms']).toBe(2);
