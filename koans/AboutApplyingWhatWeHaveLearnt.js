@@ -102,12 +102,11 @@ describe("About Applying What We Have Learnt", function() {
     /* chain() together map(), flatten() and reduce() */
     _(products.map(function(product) {
       return product.ingredients;
-    })).flatten().reduce(function(a, b) {
-      if (ingredientCount[a] === undefined) { ingredientCount[a] = 1; }
-      else { ingredientCount[a]++; }
-      if (ingredientCount[b] === undefined) { ingredientCount[b] = 1; }
-      else { ingredientCount[b]++; }
-    });
+    })).flatten().reduce(function(a, ingredient) {
+      console.log(ingredientCount);
+      if (ingredientCount[ingredient] === undefined) { ingredientCount[ingredient] = 1; }
+      else { ingredientCount[ingredient]++; }
+    }, {});
 
     expect(ingredientCount['mushrooms']).toBe(2);
   });
